@@ -22,23 +22,20 @@ public class LoginController extends HttpServlet{
 		int userIdSaved = 0;
 		
 		
-		System.out.println("username:" + usernameTyped);
-		System.out.println("password:" + passwordTyped);
+		
 		
 		ResultSet rs = null;
 		
 		DBConnection dbc = new DBConnection();
 		rs = dbc.getResultSet("SELECT password, userid FROM users WHERE email = '" + usernameTyped + "'");
 		
-		System.out.println("SELECT password, userid FROM users WHERE email = '" + usernameTyped + "'");
 		
 		try {
 			while (rs.next()) {
-				System.out.println("userId savede2213123 " + userIdSaved);
 				userExists = true;
 				passwordSaved = rs.getString(1);
 				userIdSaved = Integer.parseInt(rs.getString(2));
-				System.out.println("userId saved af " + userIdSaved);
+				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -49,7 +46,6 @@ public class LoginController extends HttpServlet{
 		}
 		PrintWriter out = response.getWriter();
 		if (userExists && passwordSaved.equals(passwordTyped)) {
-			System.out.println("userId saved" + userIdSaved);
 			request.getSession().setAttribute("userid", userIdSaved);
 		}
 		else {

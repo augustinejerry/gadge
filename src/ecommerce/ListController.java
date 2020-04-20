@@ -17,7 +17,7 @@ public class ListController extends HttpServlet{
 	public void add(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String productId = (String)request.getSession().getAttribute("product");
 		int userId = (Integer)request.getSession().getAttribute("userid");
-		System.out.println("list" + userId + " " + productId);
+		
 		int result = 0;
 		
 		String listInsert = "MERGE list l \r\n" + 
@@ -50,7 +50,7 @@ public class ListController extends HttpServlet{
 			DBConnection dbc = new DBConnection();
 			result = dbc.dml(listInsert);
 			if (result == 0) {
-				System.out.println("error in merging list values" + listInsert);
+				
 				out.println("error in merging list values");
 			}	
 			else {
@@ -62,7 +62,7 @@ public class ListController extends HttpServlet{
 	public void remove(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String productId = request.getParameter("productId");
 		int userId = (Integer)request.getSession().getAttribute("userid");
-		System.out.println("list" + userId + " " + productId);
+		
 		int result = 0;
 		
 		String listDelete = "UPDATE list\r\n" + 
@@ -76,7 +76,7 @@ public class ListController extends HttpServlet{
 			DBConnection dbc = new DBConnection();
 			result = dbc.dml(listDelete);
 			if (result == 0) {
-				System.out.println("error in removing list values");
+				
 				out.println("error in removing list values");
 			}	
 			else {
@@ -91,7 +91,7 @@ public class ListController extends HttpServlet{
 		String qty = request.getParameter("qty");
 		String active = "Y";
 		
-		System.out.println("list" + userId + " " + productId);
+		
 		int result = 0;
 		
 		if(Integer.parseInt(qty) == 0) {
@@ -111,7 +111,6 @@ public class ListController extends HttpServlet{
 			DBConnection dbc = new DBConnection();
 			result = dbc.dml(listUpdate);
 			if (result == 0) {
-				System.out.println("error in removing list values");
 				out.println("error in removing list values");
 			}	
 			else {
@@ -150,14 +149,12 @@ public class ListController extends HttpServlet{
 			DBConnection dbc = new DBConnection();
 			result = dbc.dml(query1);
 			if (result == 0) {
-				System.out.println("error in adding list values on conversion");
 				out.println("error in adding list values on conversion");
 			}	
 			else {
 				if (query2 != null) {
 					result = dbc.dml(query2);
 					if (result == 0) {
-						System.out.println("error in removing list values on conversion");
 						out.println("error in removing list values on conversion");
 					}	
 					else {
@@ -216,21 +213,18 @@ public class ListController extends HttpServlet{
 			DBConnection dbc = new DBConnection();
 			result = dbc.dml(query1);
 			if (result == 0) {
-				System.out.println("error in adding order");
 				out.println("error in adding order");
 			}	
 			else {
 				if (query2 != null) {
 					result = dbc.dml(query2);
 					if (result == 0) {
-						System.out.println("error in adding order lines");
 						out.println("error in adding order lines");
 					}	
 					else {
 						if (query3 != null) {
 							result = dbc.dml(query3);
 							if (result == 0) {
-								System.out.println("error in clearing cart");
 								out.println("error in clearing cart");
 							}	
 							else {

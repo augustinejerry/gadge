@@ -41,7 +41,7 @@ var servletName='orderdetails';
 	var id=this.id;
 	var result = id.match(/submit_([0-9]*)_/);
 	var orderId = result[1];
-	alert(orderId);
+	
 	var feedback = $('#feedback_'+orderId+'_').val();
 var servletName='feedback';
                  	$.post('ActionServlet',{orderId:orderId, feedback:feedback, servletName:servletName},function(data,status) { 

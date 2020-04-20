@@ -32,7 +32,7 @@
             $(document).ready(function() { 
 	$('#placeorder').click(function(event) { 
 		var servletName='placeorder';
-	alert("hello")
+	
 		                 	$.post('ActionServlet',{servletName:servletName},function(data,status) { 
 		location.reload();
 		                    });
@@ -42,7 +42,7 @@
 		var id=this.id;
 	var result = id.match(/remove_([0-9]*)_/);
 	var productId = result[1];
-	alert(productId);
+	
 var servletName='remove';
                  	$.post('ActionServlet',{productId:productId, servletName:servletName},function(data,status) { 
 location.reload();
@@ -56,9 +56,9 @@ location.reload();
 	var id=this.id;
 	var result = id.match(/quantity_([0-9]*)_/);
 	var productId = result[1];
-	alert(productId);
+	
 	var qty = $('#'+id).val();
-	alert(qty);
+	
 var servletName='update';
                  	$.post('ActionServlet',{productId:productId, qty:qty, servletName:servletName},function(data,status) { 
 location.reload();
@@ -124,7 +124,6 @@ location.reload();
 	 							while(i.hasNext()) {
 	 								
 	 								p = i.next();
-	 								System.out.println("inn" + p.getProduct_name());
 	 								price = p.getPrice() * p.getQty();
 	 								totalPrice += price;
 	 								%>

@@ -64,12 +64,12 @@ public class RegisterController extends HttpServlet{
 			DBConnection dbc = new DBConnection();
 			result = dbc.dml(userInsert);
 			if (result == 0) {
-				System.out.println("error in inserting user values");
+				
 			}
 			if (addressInsert != null) {
 				result = dbc.dml(addressInsert);
 				if (result == 0) {
-					System.out.println("error in inserting address values");
+					
 				}
 			}	
 			response.sendRedirect("newuserlogin.jsp");

@@ -23,7 +23,7 @@ public class ActionServlet extends HttpServlet {
 		String servletName = request.getParameter("servletName");
 		
 		if(servletName.equals("login")) {
-			System.out.println("helo");
+			
 			LoginController l = new LoginController();
 			l.login(request, response);
 		}

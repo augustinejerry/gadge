@@ -38,7 +38,6 @@ public class ApiClass {
 		
 		ResultSet rs = null;
 		String query = null;
-		System.out.println(category.equals("ShowAll") ? "product_category" : "'" + category + "'");
 		query = "SELECT product_id\r\n" + 
 				"	 , product_category\r\n" + 
 				"	 , product_name\r\n" + 
@@ -144,7 +143,7 @@ public class ApiClass {
 	}
 	public ArrayList<ProductsController> getList(int userId, String type) {
 		ArrayList<ProductsController> products = new ArrayList<>();
-		System.out.println(userId + "api");
+		
 		ResultSet rs = null;
 		String query = null;
 		
@@ -234,7 +233,7 @@ public class ApiClass {
 	}
 	public ArrayList<ProductsController> getOrderDetails(int userId, String orderId) {
 		ArrayList<ProductsController> products = new ArrayList<>();
-		System.out.println(userId + "api odeatails");
+		
 		ResultSet rs = null;
 		String query = null;
 		

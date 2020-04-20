@@ -83,7 +83,6 @@ public class OrderController {
 			DBConnection dbc = new DBConnection();
 			result = dbc.dml(feedbackUpdate);
 			if (result == 0) {
-				System.out.println("error in saving feedback");
 				out.println("error in saving feedback");
 			}	
 			else {
